@@ -1,70 +1,70 @@
 'use strict';
 
-var bitcore = module.exports;
+var veilcore = module.exports;
 
 // module information
-bitcore.version = 'v' + require('./package.json').version;
-bitcore.versionGuard = function (version) {
+veilcore.version = 'v' + require('./package.json').version;
+veilcore.versionGuard = function (version) {
     if (version !== undefined) {
-        var message = 'More than one instance of bitcore-lib found. ' +
-            'Please make sure to require bitcore-lib and check that submodules do' +
-            ' not also include their own bitcore-lib dependency.';
+        var message = 'More than one instance of veilcore-lib found. ' +
+            'Please make sure to require veilcore-lib and check that submodules do' +
+            ' not also include their own veilcore-lib dependency.';
         throw new Error(message);
     }
 };
-bitcore.versionGuard(global._bitcore);
-global._bitcore = bitcore.version;
+veilcore.versionGuard(global._veilcore);
+global._veilcore = veilcore.version;
 
 // crypto
-bitcore.crypto = {};
-bitcore.crypto.BN = require('./lib/crypto/bn');
-bitcore.crypto.ECDSA = require('./lib/crypto/ecdsa');
-bitcore.crypto.Hash = require('./lib/crypto/hash');
-bitcore.crypto.Random = require('./lib/crypto/random');
-bitcore.crypto.Point = require('./lib/crypto/point');
-bitcore.crypto.Signature = require('./lib/crypto/signature');
+veilcore.crypto = {};
+veilcore.crypto.BN = require('./lib/crypto/bn');
+veilcore.crypto.ECDSA = require('./lib/crypto/ecdsa');
+veilcore.crypto.Hash = require('./lib/crypto/hash');
+veilcore.crypto.Random = require('./lib/crypto/random');
+veilcore.crypto.Point = require('./lib/crypto/point');
+veilcore.crypto.Signature = require('./lib/crypto/signature');
 
 // encoding
-bitcore.encoding = {};
-bitcore.encoding.Base58 = require('./lib/encoding/base58');
-bitcore.encoding.Base58Check = require('./lib/encoding/base58check');
-bitcore.encoding.BufferReader = require('./lib/encoding/bufferreader');
-bitcore.encoding.BufferWriter = require('./lib/encoding/bufferwriter');
-bitcore.encoding.Varint = require('./lib/encoding/varint');
+veilcore.encoding = {};
+veilcore.encoding.Base58 = require('./lib/encoding/base58');
+veilcore.encoding.Base58Check = require('./lib/encoding/base58check');
+veilcore.encoding.BufferReader = require('./lib/encoding/bufferreader');
+veilcore.encoding.BufferWriter = require('./lib/encoding/bufferwriter');
+veilcore.encoding.Varint = require('./lib/encoding/varint');
 
 // utilities
-bitcore.util = {};
-bitcore.util.buffer = require('./lib/util/buffer');
-bitcore.util.js = require('./lib/util/js');
-bitcore.util.preconditions = require('./lib/util/preconditions');
+veilcore.util = {};
+veilcore.util.buffer = require('./lib/util/buffer');
+veilcore.util.js = require('./lib/util/js');
+veilcore.util.preconditions = require('./lib/util/preconditions');
 
 // errors thrown by the library
-bitcore.errors = require('./lib/errors');
+veilcore.errors = require('./lib/errors');
 
 // main bitcoin library
-bitcore.Address = require('./lib/address');
-bitcore.Block = require('./lib/block');
-bitcore.MerkleBlock = require('./lib/block/merkleblock');
-bitcore.BlockHeader = require('./lib/block/blockheader');
-bitcore.HDPrivateKey = require('./lib/hdprivatekey.js');
-bitcore.HDPublicKey = require('./lib/hdpublickey.js');
-bitcore.Message = require('./lib/message');
-bitcore.Networks = require('./lib/networks');
-bitcore.Opcode = require('./lib/opcode');
-bitcore.PrivateKey = require('./lib/privatekey');
-bitcore.PublicKey = require('./lib/publickey');
-bitcore.Script = require('./lib/script');
-bitcore.Transaction = require('./lib/transaction');
-bitcore.URI = require('./lib/uri');
-bitcore.Unit = require('./lib/unit');
+veilcore.Address = require('./lib/address');
+veilcore.Block = require('./lib/block');
+veilcore.MerkleBlock = require('./lib/block/merkleblock');
+veilcore.BlockHeader = require('./lib/block/blockheader');
+veilcore.HDPrivateKey = require('./lib/hdprivatekey.js');
+veilcore.HDPublicKey = require('./lib/hdpublickey.js');
+veilcore.Message = require('./lib/message');
+veilcore.Networks = require('./lib/networks');
+veilcore.Opcode = require('./lib/opcode');
+veilcore.PrivateKey = require('./lib/privatekey');
+veilcore.PublicKey = require('./lib/publickey');
+veilcore.Script = require('./lib/script');
+veilcore.Transaction = require('./lib/transaction');
+veilcore.URI = require('./lib/uri');
+veilcore.Unit = require('./lib/unit');
 
 // dependencies, subject to change
-bitcore.deps = {};
-bitcore.deps.bnjs = require('bn.js');
-bitcore.deps.bs58 = require('bs58');
-bitcore.deps.Buffer = Buffer;
-bitcore.deps.elliptic = require('elliptic');
-bitcore.deps._ = require('lodash');
+veilcore.deps = {};
+veilcore.deps.bnjs = require('bn.js');
+veilcore.deps.bs58 = require('bs58');
+veilcore.deps.Buffer = Buffer;
+veilcore.deps.elliptic = require('elliptic');
+veilcore.deps._ = require('lodash');
 
 // Internal usage, exposed for testing/advanced tweaking
-bitcore.Transaction.sighash = require('./lib/transaction/sighash');
+veilcore.Transaction.sighash = require('./lib/transaction/sighash');
